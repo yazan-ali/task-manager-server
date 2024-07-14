@@ -8,13 +8,13 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(
-    cors({
-        origin: process.env.CLIENT_URL,
-        credentials: true,
-    })
-);
+app.use(cors());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send("Hiiiiiiiii")
+});
+
 
 // Routes
 app.use('/users', userRoutes);
